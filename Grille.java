@@ -41,7 +41,7 @@ public class Grille {
 		}
 	}
 	
-	//faire une fonction qui parcourt la matrice pour trouver les 9 et utiliser incremCadre
+	//faire une fonction qui parcourt la matrice pour trouver les 9 (les mines) et utiliser incremCadre
 
 	public void afficheGrille(){
 		for (int i=0; i<8; i++){
@@ -52,6 +52,5 @@ public class Grille {
 		}
 	}
 }
-
 
 
