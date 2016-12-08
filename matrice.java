@@ -1,15 +1,15 @@
 # demineur
-public class Matrice {
+public class Grille {
 	// creation de la matrice 
-	private int[][] mat=new int[8][8];
+	private int[][] grille=new int[8][8];
 	private int nbMines=10; // nb de mines à placer: par defaut 10
 	
-	public Matrice(){
+	public Grille(){
 		// par defaut la matrice est de dimension 8x8
 		// initialisation de la matrice à zero
 		for (int i=0; i<8; i++){
 			for (int j=0; j<8; j++){
-				mat[i][j]=0;
+				grille[i][j]=0;
 			}
 		}
 	}
@@ -20,8 +20,8 @@ public class Matrice {
 			//pour les 10 mines
 			x=(int)Math.round(Math.random()*7);
 			y=(int)Math.round(Math.random()*7);
-			if (mat[x][y]==0){
-				mat[x][y]=9; //9 identifiant de la mine 
+			if (grille[x][y]==0){
+				grille[x][y]=9; //9 identifiant de la mine 
 				i++;
 			}
 		}
@@ -32,8 +32,8 @@ public class Matrice {
 			for (int j=y-1; j<=y+1; j++){
 				if (i!=x || j!=y){
 					if (i!=-1 && j!=-1 && i!=n+1 && j!=m+1){
-						if (mat[i][j]!=9){
-							mat[i][j]+=1;
+						if (grille[i][j]!=9){
+							grille[i][j]+=1;
 						}
 					}
 				}
@@ -43,10 +43,10 @@ public class Matrice {
 	
 	//faire une fonction qui parcourt la matrice pour trouver les 9 et utiliser incremCadre
 
-	public void afficheMat(){
+	public void afficheGrille(){
 		for (int i=0; i<8; i++){
 			for (int j=0; j<8; j++){
-				System.out.print(mat[i][j]+" ");
+				System.out.print(grille[i][j]+" ");
 			}
 			System.out.println();
 		}
