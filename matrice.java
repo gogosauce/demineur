@@ -1,5 +1,4 @@
 # demineur
-
 public class Matrice {
 	// creation de la matrice 
 	private int[][] mat=new int[8][8];
@@ -26,7 +25,6 @@ public class Matrice {
 				i++;
 			}
 		}
-		
 	}
 	// fonction qui incrémente les valeurs autour d'une case [x][y] 
 	public void incremCadre ( int m, int n, int x, int y){
@@ -53,9 +51,6 @@ public class Matrice {
 			System.out.println();
 		}
 	}
-	
-	
-	
 }
 
 
