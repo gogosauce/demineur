@@ -25,6 +25,9 @@ public class Utilisatrice {
 				if (value==0){ // si on trouve un zero 
 					mat1.recursive(x, y); // on decouvre les cases autour
 				}
+			}else{
+				System.out.println("vous avez perdu!");
+				mat1.getMat(x, y).setEtat(true);
 			}
 			mat1.afficheMatJoueur(); //affiche la matrice à jour
 		}
