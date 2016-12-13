@@ -55,13 +55,15 @@ public class Matrice {
 			}
 		}
 	}
-	public void placeMines(){
+	// a et b correspondent aux coord de la case sur laquelle on a cliqué pour commencer le jeu
+	public void placeMines(int a, int b){
 		int x, y; //position de la mine
 		int i=0; //compteur du nb de mines
 		while (i<nbMines){
 			x=(int)Math.round(Math.random()*(hauteur-1));
 			y=(int)Math.round(Math.random()*(longueur-1));
-			if (mat[x][y].getVal()==0){
+			// x et y ne doivent pas etre sur a et b ni les cases directement environnantes
+			if (mat[x][y].getVal()==0 && (x>(a+1) || x<(a-1)) && (y>(b+1) || y<(b-1))){ 
 				mat[x][y].setVal(9); //9 identifiant de la mine 
 				i++;
 			}
@@ -141,7 +143,6 @@ public class Matrice {
 	}
 	
 	//fonction verifiant si on a gagné
-	//verifie si les cases qui ne sont pas des mines sont découvertes ou non 
 	public boolean gagner(){
 		boolean retour=true;
 		for (int i=0; i<hauteur;i++){
