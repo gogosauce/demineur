@@ -8,13 +8,27 @@ public class Utilisatrice {
 	public static void main(String[] args) {
 		int value=0;
 		// partie permettant de créer la grille ("nouveau jeu")
-		Matrice mat1= new Matrice(4,4,9);
-		mat1.placeMines();
-		mat1.incremCadre();
+		
+		//on créé la matrice de dimension voulue
+		Matrice mat1= new Matrice(4,4,6);
+		
+		//on demande les premieres coordonnées
+		Scanner sc = new Scanner(System.in);
+		System.out.println("saisir les coordonnées x y");
+		int xx=sc.nextInt();
+		int yy=sc.nextInt();
+		
+		//on place les mines en conséquence
+		mat1.placeMines(xx, yy);
+		mat1.incremCadre(); //positionnage des chiffres 
 		mat1.afficheMat(); //affichage version développeur
+	//	mat1.afficheMatJoueur();  //affichage version joueur 
+		mat1.getMat(xx, yy).setEtat(true); // on decouvre la case pour devoiler le chiffre
+		if (mat1.getMat(xx, yy).getVal()==0){ // si on trouve un zero 
+			mat1.decouvrezero_rec(xx, yy); // on decouvre les cases autour
+		}
 		mat1.afficheMatJoueur();  //affichage version joueur 
 		
-		Scanner sc = new Scanner(System.in);
 		while (value!=9 && mat1.gagner()==false){ //tant que l'on ne tombe pas sur une mine on continue de jouer
 			System.out.println("saisir les coordonnées x y");
 			int x=sc.nextInt();
